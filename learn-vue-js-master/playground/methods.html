@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+<div id="app">
+
+  <p>{{ message }}</p>
+
+  <button v-on:click="logText">Click me</button>
+  <input type="text" v-on:keyup.enter="logText" v-model="message">
+  <button v-on:click="logText">add</button>
+
+
+</div>
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: ''
+      },
+      methods:{
+        logText: function(){
+          console.log('clicked')
+        }
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

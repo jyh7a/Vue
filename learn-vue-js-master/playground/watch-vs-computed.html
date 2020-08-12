@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template</title>
+</head>
+
+<body>
+
+  <div id="app">
+    {{ num }}
+  </div>  
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        num: 10,
+        oldNum: 0,
+      },
+      // 가벼운 로직
+      computed: {
+        doubleNum: function() {
+          return this.num * 2
+        }
+      },
+      // 무거운 로직
+      watch: {
+        num: function(newValue, oldValue) {
+          this.fetchUserByNumber(newValue, oldValue)
+        }
+      },
+      methods: {
+        fetchUserByNumber: function(num, oldNum) {
+          console.log(num, oldNum)
+          // axios.get(num)
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

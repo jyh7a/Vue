@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template</title>
+  <style>
+    .warning{
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <p v-bind:class="erroTextColor">Hello</p>
+    <button v-on:click="chageClass">Click</button>
+  </div>  
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+
+    new Vue({
+      el: '#app',
+      data: {
+        // cname: 'blue-text',
+        isError: false,
+      },
+      methods: {
+        chageClass: function() {
+          this.isError = !this.isError
+        }
+      },
+      computed: {
+        erroTextColor: function() {
+          return this.isError ? 'warning' : null
+        } 
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>
