@@ -18,9 +18,12 @@ export default {
   },
   methods: {
     addTodo: function() {
-      // 저장하는 로직
-      localStorage.setItem(this.newTodoItem, this.newTodoItem)
-      this.clearInput()
+      if(this.newTodoItem !== ''){
+         // 저장하는 로직
+        var obj = {completed: false, item: this.newTodoItem}
+        localStorage.setItem(this.newTodoItem, JSON.stringify(obj))
+        this.clearInput()
+      }
     },
     clearInput: function() {
       this.newTodoItem = ''
@@ -41,11 +44,17 @@ input:focus {
   height: 50px;
   line-height: 50px;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .inputBox input {
   border-style: none;
   font-size: 0.9rem;
+  width: calc(100% - 59px);
+  height: 100%;
+  text-align: center;
+  padding: 0;
 }
 
 .addContainer {
