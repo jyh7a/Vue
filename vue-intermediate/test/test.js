@@ -5,3 +5,5 @@
 const a = []
 a.push(20)
 console.log(a)
+
+ 
